@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Site</title>
+  <title>Noah Mok</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <!-- Sets the theme before first paint so the page doesn't flash -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Hello, world</h1>
-  <p>This is my website.</p>
+
+  <header class="site-bar">
+    <a class="brand" href="#top">
+      <img id="site-logo" class="brand-logo" src="assets/logo-light.svg"
+           data-light="assets/logo-light.svg" data-dark="assets/logo-dark.svg"
+           alt="NM monogram" width="120" height="120">
+      <span class="brand-text">
+        <span class="brand-name">Noah Mok</span>
+        <span class="brand-sub">Mechanical Engineering, University of Waterloo</span>
+      </span>
+    </a>
+
+    <nav class="bar-nav" aria-label="Main">
+      <details class="toc" id="toc">
+        <summary>Contents</summary>
+        <ul class="toc-list">
+          <li><a href="#about">About me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#opinions">Opinions</a></li>
+          <li><a href="#music">Music reviews</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </details>
+
+      <a href="assets/Noah_Mok_CV.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="https://www.linkedin.com/in/noah-mok-6b83b5428/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/EulerNTM" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:noahtmok@gmail.com">Email</a>
+
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
+        <span id="theme-label">Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section id="about"><h2>About me</h2><p>Placeholder.</p></section>
+    <section id="projects"><h2>Projects</h2><p>Placeholder.</p></section>
+    <section id="opinions"><h2>Opinions</h2><p>Placeholder.</p></section>
+    <section id="music"><h2>Music reviews</h2><p>Placeholder.</p></section>
+    <section id="blog"><h2>Blog</h2><p>Placeholder.</p></section>
+  </main>
+
 </body>
 </html>
