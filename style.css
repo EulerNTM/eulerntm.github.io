@@ -2,6 +2,9 @@
   --bar-h: 200px;               /* change this to resize the top bar */
   --bg: #EEF1F4;
   --bar-bg: #E1E7EE;
+  /* Tint laid over the banner image so the text stays readable.
+     Lower the last number (0 to 1) to show more of the image. */
+  --banner-tint: rgba(238, 241, 244, 0.75);
   --ink: #14213D;
   --muted: #4B5A73;
   --line: #B9C4D3;
@@ -12,6 +15,7 @@
 :root[data-theme="dark"] {
   --bg: #0F1722;
   --bar-bg: #162132;
+  --banner-tint: rgba(15, 23, 34, 0.70);
   --ink: #E6EDF5;
   --muted: #9AA9BF;
   --line: #2C3B52;
@@ -30,10 +34,14 @@ a { color: inherit; }
   height: var(--bar-h); width: 100%;
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
   padding: 0 clamp(1rem, 4vw, 3rem);
-  background: var(--bar-bg); border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background-color: var(--bar-bg);   /* shows if the image is missing */
+  background-image: linear-gradient(var(--banner-tint), var(--banner-tint)), url("assets/sticky_tab_banner.png");
+  background-size: cover;
+  background-position: center;       /* e.g. "center top" or "left center" to reposition */
 }
 .brand { display: flex; align-items: center; gap: 1.25rem; text-decoration: none; }
-.brand-logo { width: 120px; height: 120px; display: block; }
+.brand-photo { width: 120px; height: 120px; display: block; border-radius: 50%; object-fit: cover; border: 3px solid var(--ink); }
 .brand-text { display: flex; flex-direction: column; }
 .brand-name { font: 700 2.25rem/1.1 var(--font-display); }
 .brand-sub { color: var(--muted); font-size: 0.95rem; }
@@ -71,7 +79,7 @@ main h2 { font: 700 2rem/1.2 var(--font-display); }
 @media (max-width: 760px) {
   :root { --bar-h: 150px; }
   .site-bar { flex-direction: column; justify-content: center; align-items: flex-start; gap: 0.75rem; }
-  .brand-logo { width: 56px; height: 56px; }
+  .brand-photo { width: 56px; height: 56px; border-width: 2px; }
   .brand-name { font-size: 1.5rem; }
   .brand-sub { display: none; }
   .bar-nav { justify-content: flex-start; gap: 0.4rem 1rem; }
