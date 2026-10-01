@@ -1,6 +1,5 @@
 (function () {
   var root = document.documentElement;
-  var logo = document.getElementById("site-logo");
   var toggle = document.getElementById("theme-toggle");
   var label = document.getElementById("theme-label");
   var toc = document.getElementById("toc");
@@ -8,7 +7,6 @@
   function applyTheme(theme) {
     var dark = theme === "dark";
     root.setAttribute("data-theme", theme);
-    logo.src = dark ? logo.dataset.dark : logo.dataset.light;
     toggle.setAttribute("aria-pressed", String(dark));
     label.textContent = dark ? "Light mode" : "Dark mode";
   }
