@@ -36,7 +36,7 @@ a { color: inherit; }
   padding: 0 clamp(1rem, 4vw, 3rem);
   border-bottom: 1px solid var(--line);
   background-color: var(--bar-bg);   /* shows if the image is missing */
-  background-image: linear-gradient(var(--banner-tint), var(--banner-tint)), url("assets/sticky_tab_banner.png");
+  background-image: linear-gradient(var(--banner-tint), var(--banner-tint)), url("assets/sticky_tab_banner.jpg");
   background-size: cover;
   background-position: center;       /* e.g. "center top" or "left center" to reposition */
 }
